@@ -20,7 +20,7 @@ layout = html.Div(
                     options=[
                         {'label': "{}".format(category), 'value': category}
                         for category in categories
-                    ]
+                    ], value="Coffee"
                 ),
                 *(dcc.Graph(id="coffee-0".format(i)) for i in range(days)),
             ]
