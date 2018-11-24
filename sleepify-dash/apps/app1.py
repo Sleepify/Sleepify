@@ -7,7 +7,7 @@ import pandas as pd
 from app import app
 
 categories = ["Coffee", "Entertainment", "Weather", "Mood", "Activity"]
-days = 7
+days = 1
 
 layout = html.Div(
     [
@@ -18,11 +18,11 @@ layout = html.Div(
                 dcc.Dropdown(
                     id="categories",
                     options=[
-                        {'label': f"{category}", 'value': category}
+                        {'label': "{}".format(category), 'value': category}
                         for category in categories
                     ]
                 ),
-                *(dcc.Graph(id=f"coffee-{i}") for i in range(days)),
+                *(dcc.Graph(id="coffee-0".format(i)) for i in range(days)),
             ]
         ),
     ]
@@ -33,33 +33,42 @@ layout = html.Div(
         Output("coffee-0", "figure"),
         [Input("categories", "value")]
         )
+
 def update_coffee_graph(value):
     # df = pd.read_csv("...")
     # y_vals = pd.Series(range(100))
 
-    trace = go.Scatterpolar(
-        r=list(range(24)),
-        theta=list(range(1, 25)),
-    )
+    x_data = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00',
+            '10:00', '11:00', '12:00', '13:00', '14.00', '15:00', '16:00', '17:00', '18:00',
+            '19:00', '20:00', '21:00', '22:00', '23:00', '24:00']
+    trace0 = go.Bar(
+            x=x_data,
+            y=[0.0, 0.50, 1.0, 0.9, 0.01, 0.02, 0.25, 0.9, 0.4, 0.6,
+              0.25, 0.50, 1.0, 0.9, 0.01, 0.02, 0.25, 0.9, 0.4, 0.6,
+              0.5, 0.67, 0.9, 0.4],
+            name='coffee-0',
+
+            marker=dict(
+              color='rgb(49,130,189)',
+            ),
+        )
+    trace1 = go.Bar(
+        x= x_data,
+        y=[-0.25, -0.50, -1.0, -1.0, -0.01, -0.02, -0.2, -0.9, -0.4, -0.6,
+            -0.25, -0.50, -1.0, -0.9, -0.01, -0.02, -0.25, -0.9, -0.4, -0.6,
+            -0.5, -0.67, -0.9, -0.4
+            ],
+        name='coffee-0',
+        marker=dict(
+            color='rgba(219, 64, 82, 1.0)'
+        ),
+        )
 
     layout = go.Layout(
-        autosize=True,
-        width=275,
-        margin=go.Margin(
-            t=10,
-            b=10,
-            r=30,
-            l=40
-        ),
-        polar=dict(
-            radialaxis=dict(
-                visible=False
-                ),
-            angularaxis=dict(
-                showline=False,
-                tickcolor='white',
-            )
-        ),
-        showlegend=False,
+            title="Coffee Impact on sleep quality",
+            showlegend=False
     )
-    return go.Figure(data=[trace], layout=layout)
+
+    data = [trace0, trace1]
+
+    return go.Figure(data=data, layout=layout)
