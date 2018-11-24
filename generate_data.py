@@ -18,7 +18,6 @@ def generate_data_for_users(nr_users, nr_days):
 
 
 def generate_data(hour, previous_config):
-    print(hour, previous_config)
     wake_up = 6 + random.randint(-1, 1)
     sleepy_time = 22 + random.randint(-1, 1)
     if hour <= wake_up or hour >= sleepy_time:
@@ -57,5 +56,5 @@ def generate_data(hour, previous_config):
 import json
 import pandas as pd
 
-df = pd.DataFrame(generate_data_for_users(10, 1000))
-print(df)
+with open("train.json", "w") as f:
+    json.dump(generate_data_for_users(10, 1000), f)
