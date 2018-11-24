@@ -1,0 +1,206 @@
+{
+	"2018": {
+		"11": {
+			"23": {
+				"00": {
+					"mood": "good",
+					"weather": "Clear with periodic clouds",
+					"temperature_celcius": "2",
+					"activities": {
+						"sleeping": "true"
+					}
+				},
+				"01": {
+					"mood": "good",
+					"weather": "Clear",
+					"temperature_celcius": "2",
+					"activities": {
+						"sleeping": "true"
+					}
+				},
+				"02": {
+					"mood": "good",
+					"weather": "Clear",
+					"temperature_celcius": "2",
+					"activities": {
+						"sleeping": "true"
+					}
+				},
+				"03": {
+					"mood": "good",
+					"weather": "Clear",
+					"temperature_celcius": "2",
+					"activities": {
+						"sleeping": "true"
+					}
+				},
+				"04": {
+					"mood": "good",
+					"weather": "Clear",
+					"temperature_celcius": "1",
+					"activities": {
+						"sleeping": "true"
+					}
+				},
+				"05": {
+					"mood": "good",
+					"weather": "Clear with periodic clouds",
+					"temperature_celcius": "1",
+					"activities": {
+						"sleeping": "true"
+					}
+				},
+				"06": {
+					"mood": "good",
+					"weather": "Clear with periodic clouds",
+					"temperature_celcius": "1",
+					"activities": {
+						"sleeping": "true"
+					}
+				},
+				"07": {
+					"mood": "good",
+					"weather": "Partly Cloudy",
+					"temperature_celcius": "1",
+					"activities": {
+						"good meal": "true",
+						"coffee": "true"
+					}
+				},
+				"08": {
+					"mood": "good",
+					"weather": "Partly Cloudy",
+					"temperature_celcius": "1",
+					"activities": {
+						"work": "true"
+					}
+				},
+				"09": {
+					"mood": "meh",
+					"weather": "Partly Cloudy",
+					"temperature_celcius": "1",
+					"activities": {
+						"work": "true",
+						"coffee": "true"
+					}
+				},
+				"10": {
+					"mood": "good",
+					"weather": "Partly Cloudy",
+					"temperature_celcius": "3",
+					"activities": {
+						"work": "true"
+					}
+				},
+				"11": {
+					"mood": "meh",
+					"weather": "Mostly Sunny",
+					"temperature_celcius": "4",
+					"activities": {
+						"work": "true"
+					}
+				},
+				"12": {
+					"mood": "good",
+					"weather": "Partly Cloudy",
+					"temperature_celcius": "5",
+					"activities": {
+						"good meal": "true"
+					}
+				},
+				"13": {
+					"mood": "good",
+					"weather": "Partly Cloudy",
+					"temperature_celcius": "6",
+					"activities": {
+						"work": "true"
+					}
+				},
+				"14": {
+					"mood": "good",
+					"weather": "Mostly Sunny",
+					"temperature_celcius": "7",
+					"activities": {
+						"work": "true"
+					}
+				},
+				"15": {
+					"mood": "good",
+					"weather": "Mostly Sunny",
+					"temperature_celcius": "6",
+					"activities": {
+						"work": "true"
+					}
+				},
+				"16": {
+					"mood": "good",
+					"weather": "Partly Cloudy",
+					"temperature_celcius": "6",
+					"activities": {
+						"work": "true"
+					}
+				},
+				"17": {
+					"mood": "meh",
+					"weather": "Partly Cloudy",
+					"temperature_celcius": "4",
+					"activities": {
+						"work": "true"
+					}
+				},
+				"18": {
+					"mood": "meh",
+					"weather": "Partly Cloudy",
+					"temperature_celcius": "4",
+					"activities": {
+						"work": "true"
+					}
+				},
+				"19": {
+					"mood": "rad",
+					"weather": "Mostly Cloudy",
+					"temperature_celcius": "3",
+					"activities": {
+						"good meal": "true",
+						"hungout with friends": "true",
+						"drinking": "true"
+					}
+				},
+				"20": {
+					"mood": "rad",
+					"weather": "Cloudy",
+					"temperature_celcius": "3",
+					"activities": {
+						"hungout with friends": "true",
+						"drinking": "true"
+					}
+				},
+				"21": {
+					"mood": "rad",
+					"weather": "Cloudy",
+					"temperature_celcius": "3",
+					"activities": {
+						"hungout with friends": "true",
+						"drinking": "true"
+					}
+				},
+				"22": {
+					"mood": "good",
+					"weather": "Cloudy",
+					"temperature_celcius": "3",
+					"activities": {
+						"sleeping": "true"
+					}
+				},
+				"23": {
+					"mood": "good",
+					"weather": "Cloudy",
+					"temperature_celcius": "3",
+					"activities": {
+						"sleeping": "true"
+					}
+				}
+			}
+		}
+	}
+}
