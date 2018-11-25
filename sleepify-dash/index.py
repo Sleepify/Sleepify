@@ -3,8 +3,7 @@ import dash_html_components as html
 from dash.dependencies import Input, Output
 
 from app import app
-from apps import app1, app2, barchart
-
+from apps import app1
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
