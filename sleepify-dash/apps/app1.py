@@ -46,18 +46,20 @@ layout = html.Div(
 
 def update_graph(value):
     df = pd.read_csv(data_path)
-    x_data=["00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
-            "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"]
 
-    ytrace0, ytrace1 = [], []
-    print(df[["activity", "time", "score"]].iteritems())
-    for activity, time, score in df[["activity", "time", "score"]].iteritems():
+    x_data, ytrace0, ytrace1 = [], [], []
+
+    sorted_df = df[["activity", "time", "score"]].sort_values(by="time")
+    for row in sorted_df.itertuples():
+        activity, time, score = row[1], row[2], row[3]
         if activity == value:
-            if score>=0:
+            if score >=0:
+                x_data.append(time)
                 ytrace0.append(score)
             else:
                 ytrace1.append(score)
         else:
+            x_data.append(time)
             ytrace0.append(0)
             ytrace1.append(0)
 
@@ -76,6 +78,7 @@ def update_graph(value):
             color='rgba(219, 64, 82, 1.0)'
         ),
         )
+    print(x_data)
 
     layout = go.Layout(
             title="Activity Impact on sleep quality",
