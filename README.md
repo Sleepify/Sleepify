@@ -13,7 +13,7 @@ A beautiful app that will help everybody sleep better based on their data
 
 ## Features
 
-* Full support for data from all kinds of wearables
+* (Soon) full support for data from all kinds of wearables
 * Visualize the benefit or harm of any acitivity during the day on your sleep
 * Fully personalized prediction on the benefits and harm of your daily activities
 
