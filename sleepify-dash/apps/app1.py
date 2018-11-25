@@ -6,16 +6,11 @@ from dash.dependencies import Input, Output
 import pandas as pd
 from os.path import dirname, join as path_join
 from app import app
-from os.path import join as path_join, dirname
 sys.path.insert(0, path_join(dirname(__file__), "..", ".."))
 
 from train_score import load_data
 
-
-
-# TODO: when a drop down menu is chosen, update the graph with the new data
-#
-categories = ["training", "movies", "reading", "programming","girlfriend time" ,
+categories = ["training", "movies", "reading", "programming", "girlfriend time",
                 "work", "relax", "friends", "sleeping",
                 "coffee", "good meal", "hangout with friends"]
 days = 1
@@ -78,7 +73,6 @@ def update_graph(value):
             color='rgba(219, 64, 82, 1.0)'
         ),
         )
-    print(x_data)
 
     layout = go.Layout(
             title="Activity Impact on sleep quality",
