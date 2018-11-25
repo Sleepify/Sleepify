@@ -6,16 +6,11 @@ from dash.dependencies import Input, Output
 import pandas as pd
 from os.path import dirname, join as path_join
 from app import app
-from os.path import join as path_join, dirname
 sys.path.insert(0, path_join(dirname(__file__), "..", ".."))
 
 from train_score import load_data
 
-
-
-# TODO: when a drop down menu is chosen, update the graph with the new data
-#
-categories = ["training", "movies", "reading", "programming","girlfriend time" ,
+categories = ["training", "movies", "reading", "programming", "girlfriend time",
                 "work", "relax", "friends", "sleeping",
                 "coffee", "good meal", "hangout with friends"]
 days = 1
@@ -43,16 +38,13 @@ layout = html.Div(
         Output("category", "figure"),
         [Input("categories", "value")]
         )
-
 def update_graph(value):
     df = pd.read_csv(data_path)
-    x_data=["00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
-            "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"]
 
-    ytrace0, ytrace1 = [], []
-    for hour in df[["activity", "time", "score"]].itertuples():
+    ytrace0, ytrace1, x_data = [], [], []
+    for hour in df[["activity", "hour", "score"]].itertuples():
         if hour.activity == value:
-            if hour.score>=0:
+            if hour.score >= 0:
                 ytrace0.append(hour.score)
                 ytrace1.append(0)
             else:
@@ -61,6 +53,8 @@ def update_graph(value):
         else:
             ytrace0.append(0)
             ytrace1.append(0)
+
+        x_data.append(hour.hour)
 
     trace0 = go.Bar(
             x=x_data,
