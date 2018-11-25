@@ -1,4 +1,4 @@
-## Sleepify
+# Sleepify
 A beautiful app that will help everybody sleep better based on their data
 
 <img src="https://github.com/Sleepify/Sleepify/blob/master/Sleepyfit-logo.svg" alt="alt text" width="25%"> &emsp; <img src="https://www.baselhack.ch/frontend/images/logo/baselhack_black.png" alt="alt text" width="15%">
@@ -18,6 +18,6 @@ A beautiful app that will help everybody sleep better based on their data
 * Fully personalized prediction on the benefits and harm of your daily activities
 
 ## Technologies used
-<img src="https://www.probytes.net/wp-content/uploads/2018/10/dash-logo-300.png" alt="alt text" width="10%"> <img src="http://www.howcsharp.com/img/1/47/pandas-300x300.jpg" alt="alt text" width="10%">
+<img src="https://www.probytes.net/wp-content/uploads/2018/10/dash-logo-300.png" alt="alt text" width="20%"> <img src="http://www.howcsharp.com/img/1/47/pandas-300x300.jpg" alt="alt text" width="20%">
 
 <img src="https://www.bugcrowd.com/wp-content/uploads/2018/08/Fitbit-Logo.png" alt="alt text" width="25%">
