@@ -42,12 +42,15 @@ def predict_score(time, activity, temp, mood, weather):
 #############################
 #    GENERAL PREDICTION     #
 #############################
+
+
 def predict_mood(mood, score):
     if mood in NORMAL_MOOD:
-       return score * getRandom(60, 70)
+        return score * getRandom(60, 70)
     elif mood in BAD_MOOD:
         return score * getRandom(40, 60)
     return score
+
 
 def predict_weather(weather, score):
     if weather in BAD_WEATHER:
@@ -55,9 +58,11 @@ def predict_weather(weather, score):
     elif weather in NORMAL_WEATHER:
         return score * getRandom(40, 60)
     return score
-    
+
+
 def getRandom(start, stop):
     return random.randrange(start, stop) / 100
+
 
 def predict(time, temp, mood, weather, early_time=range(1, 8), late_time=range(18, 24)):
     score = 1
@@ -66,7 +71,7 @@ def predict(time, temp, mood, weather, early_time=range(1, 8), late_time=range(1
         score = score * getRandom(60, 70)
     elif time in late_time:
         score = score * -1
-    
+
     score = predict_mood(mood, score)
     score = predict_weather(weather, score)
     if NORMAL_TEMP <= int(temp) <= HIGH_TEMP:
@@ -121,14 +126,14 @@ def predict_friends(time, temp, mood, weather):
 def predict_meal(time, temp, mood, weather):
     return predict(time, temp, mood, weather, early_time=range(1, 8), late_time=range(23, 24))
 
-    
+
 if __name__ == "__main__":
 
     with open("train.json", "r") as f:
         data = json.loads(f.read())
 
     full_data = {}
-    
+
     for i, user in enumerate(data):
         userName = "user-{}".format(i)
         full_data[userName] = []
@@ -157,6 +162,6 @@ if __name__ == "__main__":
                 activity_per_day[activity]["weather"].append(weather)
                 activity_per_day[activity]["temperature"].append(temperature)
             full_data[userName].append(activity_per_day)
-    
+
     with open("Data/data.json", "w") as file:
         json.dump(full_data, file)
