@@ -101,7 +101,7 @@ with codecs.open('Data/daylio_data.csv', 'rU', 'utf-16') as csvfile:
                 # Add retrieved data in the dict for later use
                 for observation in weather_data['history']['observations']:
                     timestamp_yyyymmddhh = observation['date']['year'] + observation['date']['mon'] + observation['date']['mday'] + observation['date']['hour']
-                    weather_dict[timestamp_yyyymmddhh] = {'temperature_celcius': observation['tempm'], 'conds': observation['conds'], 'icon': observation['icon']}
+                    weather_dict[timestamp_yyyymmddhh] = {'temperature_celsius': observation['tempm'], 'conds': observation['conds'], 'icon': observation['icon']}
     
                 pass
             except KeyError:
@@ -117,7 +117,7 @@ with codecs.open('Data/daylio_data.csv', 'rU', 'utf-16') as csvfile:
             
         timestamp_yyyymmddhh = row['year'] + month_MM + day + hour
         hour_root['weather'] = weather_dict[timestamp_yyyymmddhh]['conds']
-        hour_root['temperature_celcius'] = weather_dict[timestamp_yyyymmddhh]['temperature_celcius']
+        hour_root['temperature_celsius'] = weather_dict[timestamp_yyyymmddhh]['temperature_celsius']
         # ICON URL: https://icons.wxug.com/i/c/a/<ICON>.gif
         hour_root['icon'] = weather_dict[timestamp_yyyymmddhh]['icon']
 
