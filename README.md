@@ -20,4 +20,4 @@ A beautiful app that will help everybody sleep better based on their data
 # Technologies used
 
 
-
+<img src="https://www.bugcrowd.com/wp-content/uploads/2018/08/Fitbit-Logo.png" alt="alt text" width="25%">
