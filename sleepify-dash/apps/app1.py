@@ -7,18 +7,26 @@ import pandas as pd
 from os.path import dirname, join as path_join
 from app import app
 sys.path.insert(0, path_join(dirname(__file__), "..", ".."))
-
+import base64
 from train_score import load_data
+
+
+
+logo_filename = './assets/images/top.png' # replace with your own image
+encoded_logo = base64.b64encode(open(logo_filename, 'rb').read())
+
 
 categories = ["all", "training", "movies", "reading", "programming", "girlfriend time",
                 "work", "relax", "friends", "sleep",
                 "coffee", "good meal", "hangout with friends"]
 days = 1
 data_path = path_join(dirname(__file__), "..", "..", "Data", "data.csv")
+df = pd.read_csv(data_path)
 
 layout = html.Div(
     [
-        html.H2("Sleepyfit"),
+        html.Img(src='data:image/png;base64,{}'.format(encoded_logo.decode()), width="400px"),
+        html.P(),
         html.Div(
             [
                 dcc.Dropdown(
@@ -30,7 +38,7 @@ layout = html.Div(
                 dcc.Graph(id="category"),
             ]
         ),
-    ]
+    ], id='main', style={'position': 'absolute', 'left': '35%', 'width': '450px'}
 )
 
 
@@ -39,7 +47,6 @@ layout = html.Div(
         [Input("categories", "value")]
         )
 def update_graph(value):
-    df = pd.read_csv(data_path)
 
     ytrace0, ytrace1, x_data = [], [], []
     if value == "all":

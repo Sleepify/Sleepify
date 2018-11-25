@@ -4,6 +4,7 @@ from dash.dependencies import Input, Output
 
 from app import app
 from apps import app1
+from apps import app2
 
 app.layout = html.Div([
     dcc.Location(id='url', refresh=False),
@@ -14,15 +15,12 @@ app.layout = html.Div([
               [Input('url', 'pathname')])
 
 def display_page(pathname):
-    return app1.layout
-#    if pathname == '/apps/app1':
-#         return app1.layout
-#    elif pathname == '/apps/app2':
-#         return app2.layout
-#    elif pathname == '/apps/barchart':
-#        return barchart.layout
-#    else:
-#        return '404'
+   if pathname == '/apps/app1':
+        return app1.layout
+   elif pathname == '/apps/app2':
+        return app2.layout
+   else:
+       return '404'
 
 if __name__ == '__main__':
     app.run_server(debug=True)
