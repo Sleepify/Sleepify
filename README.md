@@ -1,7 +1,7 @@
 ## Sleepify
 A beautiful app that will help everybody sleep better based on their data
 
-<img src="https://github.com/Sleepify/Sleepify/blob/master/Sleepyfit-logo.svg" alt="alt text" width="5%"> &emsp; <img src="https://www.baselhack.ch/frontend/images/logo/baselhack_black.png" alt="alt text" width="7%">
+<img src="https://github.com/Sleepify/Sleepify/blob/master/Sleepyfit-logo.svg" alt="alt text" width="25%"> &emsp; <img src="https://www.baselhack.ch/frontend/images/logo/baselhack_black.png" alt="alt text" width="7%">
 
 # Install
 
