@@ -5,14 +5,16 @@ weathers = ["cloudly", "sunny", "rainy", "foggy", "partly sunny"]
 
 def generate_data_for_users(nr_users, nr_days):
     data_users = []
-    for nth_user in range(nr_users):
+    for i, nth_user in enumerate(range(nr_users)):
         user_data = []
         for nth_day in range(nr_days):
+            data_per_day = []
             previous_config = config = None
             for hour in range(24):
                 previous_config = config
                 config = generate_data(hour, previous_config)
-                user_data.append(config)
+                data_per_day.append(config)
+            user_data.append(data_per_day)
         data_users.append(user_data)
     return data_users
 
@@ -57,4 +59,4 @@ import json
 import pandas as pd
 
 with open("train.json", "w") as f:
-    json.dump(generate_data_for_users(10, 1000), f)
+    json.dump(generate_data_for_users(1, 360), f)
