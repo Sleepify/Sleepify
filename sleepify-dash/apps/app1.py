@@ -50,13 +50,14 @@ def update_graph(value):
             "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"]
 
     ytrace0, ytrace1 = [], []
-    print(df[["activity", "time", "score"]].iteritems())
-    for activity, time, score in df[["activity", "time", "score"]].iteritems():
-        if activity == value:
-            if score>=0:
-                ytrace0.append(score)
+    for hour in df[["activity", "time", "score"]].itertuples():
+        if hour.activity == value:
+            if hour.score>=0:
+                ytrace0.append(hour.score)
+                ytrace1.append(0)
             else:
-                ytrace1.append(score)
+                ytrace0.append(0)
+                ytrace1.append(hour.score)
         else:
             ytrace0.append(0)
             ytrace1.append(0)
