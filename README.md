@@ -21,3 +21,5 @@ A beautiful app that will help everybody sleep better based on their data
 <img src="https://www.probytes.net/wp-content/uploads/2018/10/dash-logo-300.png" alt="alt text" width="10%"> <img src="http://www.howcsharp.com/img/1/47/pandas-300x300.jpg" alt="alt text" width="10%">
 
 <img src="https://www.bugcrowd.com/wp-content/uploads/2018/08/Fitbit-Logo.png" alt="alt text" width="25%">
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/05/Scikit_learn_logo_small.svg/1200px-Scikit_learn_logo_small.svg.png" alt="alt text" width="25%">
