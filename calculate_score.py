@@ -44,12 +44,15 @@ def predict_score(hour, activity, temperature, mood, weather):
 #############################
 #    GENERAL PREDICTION     #
 #############################
+
+
 def predict_mood(mood, score):
     if mood in NORMAL_MOOD:
-       return score * getRandom(60, 70)
+        return score * getRandom(60, 70)
     elif mood in BAD_MOOD:
         return score * getRandom(40, 60)
     return score
+
 
 def predict_weather(weather, score):
     if weather in BAD_WEATHER:
@@ -57,6 +60,7 @@ def predict_weather(weather, score):
     elif weather in NORMAL_WEATHER:
         return score * getRandom(40, 60)
     return score
+
 
 def getRandom(start, stop):
     return random.randrange(start, stop) / 100

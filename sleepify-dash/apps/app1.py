@@ -38,6 +38,7 @@ layout = html.Div(
                 dcc.Graph(id="category"),
             ]
         ),
+        html.Button('Predictions', id='predictions'),
     ], id='main', style={'position': 'absolute', 'left': '35%', 'width': '450px'}
 )
 
