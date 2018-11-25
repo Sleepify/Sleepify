@@ -10,8 +10,8 @@ sys.path.insert(0, path_join(dirname(__file__), "..", ".."))
 
 from train_score import load_data
 
-categories = ["training", "movies", "reading", "programming", "girlfriend time",
-                "work", "relax", "friends", "sleeping",
+categories = ["all", "training", "movies", "reading", "programming", "girlfriend time",
+                "work", "relax", "friends", "sleep",
                 "coffee", "good meal", "hangout with friends"]
 days = 1
 data_path = path_join(dirname(__file__), "..", "..", "Data", "data.csv")
@@ -42,8 +42,14 @@ def update_graph(value):
     df = pd.read_csv(data_path)
 
     ytrace0, ytrace1, x_data = [], [], []
+    if value == "all":
+        value = ["training", "movies", "reading", "programming", "girlfriend time",
+                 "work", "relax", "friends", "sleep",
+                 "coffee", "good meal", "hangout with friends"]
+    else:
+        value = [value]
     for hour in df[["activity", "hour", "score"]].itertuples():
-        if hour.activity == value:
+        if hour.activity in value:
             if hour.score >= 0:
                 ytrace0.append(hour.score)
                 ytrace1.append(0)
