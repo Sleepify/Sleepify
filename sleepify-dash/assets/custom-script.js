@@ -33,10 +33,12 @@ document.addEventListener("click", function() {
         window.location = 'http://127.0.0.1:8050/apps/app1';
         return;
     }
-
-    var app1 = document.getElementById("predictions");
-    if (app1 !== null) {
-        window.location = 'http://127.0.0.1:8050/apps/app3';
-    } 
 });
 
+
+document.onkeydown = function (key) {
+    var button = document.getElementById("predictions");
+    if (button !== null) {
+        window.location = 'http://127.0.0.1:8050/apps/app3';
+    }
+};
