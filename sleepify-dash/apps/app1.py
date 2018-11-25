@@ -3,6 +3,7 @@ import dash_html_components as html
 import plotly.graph_objs as go
 from dash.dependencies import Input, Output
 import pandas as pd
+from os.path import dirname, join as path_join
 
 from app import app
 
@@ -10,6 +11,7 @@ from app import app
 #
 categories = ["Coffee", "Entertainment", "Weather", "Mood", "Activity"]
 days = 1
+data_path = path_join(dirname(__file__), "..", "..", "Data")
 
 layout = html.Div(
     [
@@ -37,7 +39,7 @@ layout = html.Div(
         )
 
 def update_graph(value):
-    # df = pd.read_csv("...")
+     df = pd.read_json(data_path + )
     # y_vals = pd.Series(range(100))
 
     x_data = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00',
