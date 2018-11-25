@@ -7,8 +7,14 @@ import pandas as pd
 from os.path import dirname, join as path_join
 from app import app
 sys.path.insert(0, path_join(dirname(__file__), "..", ".."))
+import base64
 
 from train_score import load_data
+
+
+logo_filename = './assets/images/top.png' # replace with your own image
+encoded_logo = base64.b64encode(open(logo_filename, 'rb').read())
+
 
 categories = ["training", "movies", "reading", "programming", "girlfriend time",
                 "work", "relax", "friends", "sleeping",
@@ -18,7 +24,8 @@ data_path = path_join(dirname(__file__), "..", "..", "Data", "data.csv")
 
 layout = html.Div(
     [
-        html.H2("Sleepyfit"),
+        html.Img(src='data:image/png;base64,{}'.format(encoded_logo.decode()), width="400px"),
+        html.P(),
         html.Div(
             [
                 dcc.Dropdown(
@@ -30,7 +37,7 @@ layout = html.Div(
                 dcc.Graph(id="category"),
             ]
         ),
-    ]
+    ], id='main', style={'position': 'absolute', 'left': '35%', 'width': '450px'}
 )
 
 
