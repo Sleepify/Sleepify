@@ -1,21 +1,28 @@
+import sys
 import dash_core_components as dcc
 import dash_html_components as html
 import plotly.graph_objs as go
 from dash.dependencies import Input, Output
 import pandas as pd
 from os.path import dirname, join as path_join
-
 from app import app
+from os.path import join as path_join, dirname
+sys.path.insert(0, path_join(dirname(__file__), "..", ".."))
+
+from train_score import load_data
+
+
 
 # TODO: when a drop down menu is chosen, update the graph with the new data
 #
-categories = ["Coffee", "Entertainment", "Weather", "Mood", "Activity"]
+categories = ["training", "movies", "reading", "programming","girlfriend time" ,
+                "work", "relax", "friends", "sleeping",
+                "coffee", "good meal", "hangout with friends"]
 days = 1
-data_path = path_join(dirname(__file__), "..", "..", "Data")
+data_path = path_join(dirname(__file__), "..", "..", "Data", "data.csv")
 
 layout = html.Div(
     [
-        dcc.Link('Go to App 2', href='/apps/app2'),
         html.H2("Sleepyfit"),
         html.Div(
             [
@@ -23,10 +30,9 @@ layout = html.Div(
                     id="categories",
                     options=[
                         {'label': "{}".format(category), 'value': category}
-                        for category in categories
-                    ], value="Coffee"
+                        for category in categories ], value="coffee"
                 ),
-                *(dcc.Graph(id="coffee-{}".format(i)) for i in range(days)),
+                dcc.Graph(id="category"),
             ]
         ),
     ]
@@ -34,43 +40,45 @@ layout = html.Div(
 
 
 @app.callback(
-        Output("coffee-0", "figure"),
+        Output("category", "figure"),
         [Input("categories", "value")]
         )
 
 def update_graph(value):
-     df = pd.read_json(data_path + )
-    # y_vals = pd.Series(range(100))
+    df = pd.read_csv(data_path)
+    x_data=["00", "01", "02", "03", "04", "05", "06", "07", "08", "09",
+            "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24"]
 
-    x_data = ['00:00', '01:00', '02:00', '03:00', '04:00', '05:00', '06:00', '07:00', '08:00', '09:00',
-            '10:00', '11:00', '12:00', '13:00', '14.00', '15:00', '16:00', '17:00', '18:00',
-            '19:00', '20:00', '21:00', '22:00', '23:00', '24:00']
+    ytrace0, ytrace1 = [], []
+    print(df[["activity", "time", "score"]].iteritems())
+    for activity, time, score in df[["activity", "time", "score"]].iteritems():
+        if activity == value:
+            if score>=0:
+                ytrace0.append(score)
+            else:
+                ytrace1.append(score)
+        else:
+            ytrace0.append(0)
+            ytrace1.append(0)
 
     trace0 = go.Bar(
             x=x_data,
-            y=[0.0, 0.50, 1.0, 0.9, 0.01, 0.02, 0.25, 0.9, 0.4, 0.6,
-              0.25, 0.50, 1.0, 0.9, 0.01, 0.02, 0.25, 0.9, 0.4, 0.6,
-              0.5, 0.67, 0.9, 0.4],
-            name='coffee',
-
+            y=ytrace0,
             marker=dict(
               color='rgb(49,130,189)',
             ),
         )
+
     trace1 = go.Bar(
-        x= x_data,
-        y=[-0.25, -0.50, -1.0, -1.0, -0.01, -0.02, -0.2, -0.9, -0.4, -0.6,
-            -0.25, -0.50, -1.0, -0.9, -0.01, -0.02, -0.25, -0.9, -0.4, -0.6,
-            -0.5, -0.67, -0.9, -0.4
-            ],
-        name='coffee-0',
+        x=x_data,
+        y=ytrace1,
         marker=dict(
             color='rgba(219, 64, 82, 1.0)'
         ),
         )
 
     layout = go.Layout(
-            title="Coffee Impact on sleep quality",
+            title="Activity Impact on sleep quality",
             showlegend=False
     )
 
