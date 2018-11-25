@@ -76,6 +76,7 @@ def update_graph(value):
             marker=dict(
               color='rgb(49,130,189, 0.1)',
             ),
+            opacity=0.6
         )
 
     trace1 = go.Bar(
@@ -84,6 +85,7 @@ def update_graph(value):
         marker=dict(
             color='rgba(219, 64, 82, 0.8)'
         ),
+        opacity=0.6
         )
 
     layout = go.Layout(
