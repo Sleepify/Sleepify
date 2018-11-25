@@ -1,2 +1,2 @@
-# Sleepify
-A beautiful app that will help everybody help better based on their sleeping data
+## Sleepify
+A beautiful app that will help everybody sleep better based on their data
