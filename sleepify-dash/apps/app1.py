@@ -6,15 +6,17 @@ import pandas as pd
 
 from app import app
 
+# TODO: when a drop down menu is chosen, update the graph with the new data
+#
 categories = ["Coffee", "Entertainment", "Weather", "Mood", "Activity"]
 days = 1
 
 layout = html.Div(
     [
         dcc.Link('Go to App 2', href='/apps/app2'),
+        html.H2("Sleepyfit"),
         html.Div(
             [
-                html.H3("Coffee"),
                 dcc.Dropdown(
                     id="categories",
                     options=[
@@ -22,7 +24,7 @@ layout = html.Div(
                         for category in categories
                     ], value="Coffee"
                 ),
-                *(dcc.Graph(id="coffee-0".format(i)) for i in range(days)),
+                *(dcc.Graph(id="coffee-{}".format(i)) for i in range(days)),
             ]
         ),
     ]
@@ -47,7 +49,7 @@ def update_graph(value):
             y=[0.0, 0.50, 1.0, 0.9, 0.01, 0.02, 0.25, 0.9, 0.4, 0.6,
               0.25, 0.50, 1.0, 0.9, 0.01, 0.02, 0.25, 0.9, 0.4, 0.6,
               0.5, 0.67, 0.9, 0.4],
-            name='coffee-0',
+            name='coffee',
 
             marker=dict(
               color='rgb(49,130,189)',
