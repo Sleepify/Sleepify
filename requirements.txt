@@ -7,7 +7,7 @@ dash-html-components==0.13.2
 dash-renderer==0.15.1
 dash-table==3.1.6
 decorator==4.3.0
-Flask==1.0.2
+Flask==2.2.5
 Flask-Compress==1.4.0
 idna==2.7
 ipython-genutils==0.2.0
